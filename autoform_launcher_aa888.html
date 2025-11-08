@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Form Điền AA888</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f8f8f8; }
+    h1 { color: #d00; }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #e60000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Auto Điền Form Đăng Ký AA888</h1>
+  <p>➡️ Bước 1: Truy cập <a href="https://m.aa888vi.com/home/register" target="_blank">m.aa888vi.com/home/register</a> trước.</p>
+  <p>➡️ Bước 2: QUAY LẠI trang này, rồi bấm nút bên dưới 👇</p>
+  <button onclick="runAuto()">🚀 Chạy Auto Form</button>
+
+  <script>
+    function runAuto() {
+      try {
+        const randomStr = Math.random().toString(36).substring(2, 6);
+        const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        const username = `user${today}${randomStr}`;
+        const password = 'Test@123456';
+        const fullName = prompt('🧍 Nhập họ tên thật của bạn:');
+        if (!fullName) return alert('❗ Bạn chưa nhập họ tên.');
+
+        document.querySelector('input[placeholder*="Tên tài khoản"]').value = username;
+        document.querySelectorAll('input[type="password"]')[0].value = password;
+        document.querySelectorAll('input[type="password"]')[1].value = password;
+        document.querySelector('input[placeholder*="Họ và Tên"]').value = fullName;
+        const checkbox = document.querySelector('input[type="checkbox"]');
+        if (checkbox && !checkbox.checked) checkbox.click();
+
+        alert("✅ Đã điền form. Bấm 'Đăng ký' để hoàn tất!");
+
+      } catch(e) {
+        alert("❌ Script chỉ chạy nếu bạn đang ở trang đăng ký AA888.");
+      }
+    }
+  </script>
+</body>
+</html>
